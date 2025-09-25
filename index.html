@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Code Editor</title>
+  <meta name="description" content="Interactive web code editor supporting HTML, CSS, and JavaScript with live preview and simple validation tests inside the browser." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <header>
+    <div class="container row">
+      <div class="brand row">
+        <div class="logo"></div>
+        <div class="title">Code Editor – Live In Browser</div>
+      </div>
+      <div class="row">
+        <button class="btn secondary" id="saveBtn"><span>Save</span></button>
+        <button class="btn secondary" id="loadBtn"><span>Load</span></button>
+        <input id="openFile" type="file" accept="application/json" hidden>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- LEFT PANEL -->
+    <aside class="card panel stack">
+      <h2>Task / Assignment</h2>
+      <textarea id="assignment" class="text" placeholder="Write some tasks..."></textarea>
+
+      <div class="stack">
+        <label for="testArea">Validation tests (JavaScript only – optional)</label>
+        <textarea id="testArea" class="text" placeholder="Write simple tests to append after the checking solution..."></textarea>
+      </div>
+
+      <h3>Tip:</h3>
+      <ul class="muted">
+        <li><kbd>Ctrl</kbd> + <kbd>S</kbd> to save</li>
+        <li><kbd>Ctrl</kbd> + <kbd>Enter</kbd> to run</li>
+      </ul>
+    </aside>
+
+    <!-- CENTER PANEL -->
+    <section class="stack" id="web-only">
+
+      <div class="stack panel card">
+        <div class="row">
+          <h2>HTML / CSS / JS</h2>
+          <div class="row">
+            <button class="btn ok" id="runWeb">Run</button>
+            <button class="btn secondary" id="openPreview">Open preview in new window</button>
+          </div>
+        </div>
+
+        <div class="tabs" id="webTabs" role="tablist">
+          <button class="tab active" role="tab" data-pane="html">HTML</button>
+          <button class="tab" role="tab" data-pane="css">CSS</button>
+          <button class="tab" role="tab" data-pane="js">JavaScript</button>
+        </div>
+
+        <div class="editor-wrap" data-pane="html">
+          <div id="ed_html" class="editor"></div>
+        </div>
+
+        <div class="editor-wrap" hidden>
+          <div id="ed_css" class="editor"></div>
+        </div>
+
+        <div class="editor-wrap" hidden>
+          <div id="ed_js" class="editor"></div>
+        </div>
+
+        <div class="stack">
+          <h3>Preview</h3>
+          <iframe id="preview" class="preview" sandbox="allow-scripts allow-same-origin allow-modals allow-forms"></iframe>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- RIGHT PANEL -->
+    <aside class="card panel stack">
+      <h2>Output</h2>
+      <div id="output" class="out" aria-live="polite"></div>
+
+      <div class="row">
+        <button class="btn warn" id="runTests">Run with tests</button>
+        <button class="btn secondary">Clear logs</button>
+      </div>
+
+      <h3>Notes:</h3>
+      <ul class="muted">
+        <li>Everything runs inside the browser in a sandbox</li>
+        <li>You can save the work as a JSON file and restore it later</li>
+      </ul>
+    </aside>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
