@@ -1,2 +1,2 @@
-# Code-Editor
-html, css, javascript 
+# Code_Editor
+Applying html, css, javascript 
