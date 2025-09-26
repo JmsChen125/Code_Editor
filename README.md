@@ -1,2 +1,5 @@
 # Code_Editor
-Applying html, css, and javascript 
+Programmed using html, css, and javascript 
+
+Code Editor in browser for html, css, and javascript
+
